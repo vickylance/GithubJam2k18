@@ -1,18 +1,18 @@
-# phaser3-parcel-ts-starter
+# They came from SPACE
 
-A simple Phaser 3 starter pack that utilizes -
-1) Typescript for building the game.
+Techstack used -
+1) Phaser 3 for building the game using TS.
 2) Parcel for bundling.
 3) Tslint for linting.
 4) Prettier for code formatting.
 
 ## Installation & Development
 
-To create a new Phaser 3 project using this template.
+To run this game locally
 
 ```
-git clone https://github.com/vickylance/phaser3-parcel-ts-starter.git my-awesome-game
-cd my-awesome-game
+git clone https://github.com/vickylance/GithubJam2k18.git
+cd GithubJam2k18
 yarn
 yarn start
 ```
