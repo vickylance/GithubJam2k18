@@ -8,8 +8,25 @@ const game = new Game({
   pixelArt: true,
   roundPixels: true,
   scene: [LoadGame],
-  title: 'Treasure Hunt',
-  parent: 'game'
+  title: 'They came from SPACE',
+  parent: 'game',
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: false,
+      debug: false
+    }
+  },
+  banner: {
+    text: '#ffffff',
+    background: [
+        '#fff200',
+        '#38f0e8',
+        '#00bff3',
+        '#ec008c'
+    ],
+    hidePhaser: true
+  }
 });
 
 function resize() {
