@@ -19,12 +19,7 @@ const game = new Game({
   },
   banner: {
     text: '#ffffff',
-    background: [
-        '#fff200',
-        '#38f0e8',
-        '#00bff3',
-        '#ec008c'
-    ],
+    background: ['#fff200', '#38f0e8', '#00bff3', '#ec008c'],
     hidePhaser: true
   }
 });

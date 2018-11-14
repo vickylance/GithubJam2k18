@@ -2,8 +2,9 @@ import Phaser from 'phaser';
 import { CST } from '../constants';
 import Images from '../images';
 
-class MainGame extends Phaser.Scene {
+import MapGenerator from '../utils/CellularAutomata'
 
+class MainGame extends Phaser.Scene {
   // Player
   private player: Phaser.Physics.Arcade.Sprite;
   private moveSpeed: number;
@@ -14,11 +15,13 @@ class MainGame extends Phaser.Scene {
   private keyA: Phaser.Input.Keyboard.Key;
   private keyS: Phaser.Input.Keyboard.Key;
   private keyD: Phaser.Input.Keyboard.Key;
-  
+
   private keyUp: Phaser.Input.Keyboard.Key;
   private keyDown: Phaser.Input.Keyboard.Key;
   private keyLeft: Phaser.Input.Keyboard.Key;
   private keyRight: Phaser.Input.Keyboard.Key;
+
+  private map: MapGenerator;
 
   constructor() {
     super({ key: CST.SCENES.GAME });
@@ -66,16 +69,16 @@ class MainGame extends Phaser.Scene {
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
     this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
-    this.keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
-    this.keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
-    this.keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+    this.keyDown = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.DOWN
+    );
+    this.keyLeft = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.LEFT
+    );
+    this.keyRight = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.RIGHT
+    );
 
-    // this.input.on("pointermove", (pointer) => {
-      
-    // });
-
-    console.log(this.sys.game.config);
-    
     // // group of enemies
     // this.enemies = this.add.group({
     //   key: 'dragon',
@@ -107,25 +110,26 @@ class MainGame extends Phaser.Scene {
    * update
    */
   public update() {
-
     // Move player
-    if(this.keyW.isDown || this.keyUp.isDown) {
+    if (this.keyW.isDown || this.keyUp.isDown) {
       this.player.body.velocity.y = -this.moveSpeed;
-    } else if(this.keyS.isDown || this.keyDown.isDown) {
+    } else if (this.keyS.isDown || this.keyDown.isDown) {
       this.player.body.velocity.y = this.moveSpeed;
     } else {
       this.player.body.velocity.y = 0;
     }
 
-    if(this.keyA.isDown || this.keyLeft.isDown) {
+    if (this.keyA.isDown || this.keyLeft.isDown) {
       this.player.body.velocity.x = -this.moveSpeed;
-    } else if(this.keyD.isDown || this.keyRight.isDown) {
+    } else if (this.keyD.isDown || this.keyRight.isDown) {
       this.player.body.velocity.x = this.moveSpeed;
     } else {
       this.player.body.velocity.x = 0;
     }
-    
-    this.player.rotation = Phaser.Math.Angle.BetweenPoints(this.input.mousePointer, this.player) - Math.PI;
+
+    this.player.rotation =
+      Phaser.Math.Angle.BetweenPoints(this.input.mousePointer, this.player) -
+      Math.PI;
     // this.player.angle = (Phaser.Math.Angle.BetweenPoints(this.input.mousePointer, this.player) * 180 / Math.PI) - 180;
 
     // this.player.y = Phaser.Math.Clamp(this.player.y, 0, this.sys.game.config.height - this.player.height);
