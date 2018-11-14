@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { CST } from '../constants';
 import Images from '../images';
 
-import MapGenerator from '../utils/CellularAutomata'
+import MapGenerator from '../utils/CellularAutomata';
 
 class MainGame extends Phaser.Scene {
   // Player

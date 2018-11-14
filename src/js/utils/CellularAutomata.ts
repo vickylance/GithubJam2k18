@@ -1,6 +1,6 @@
 import * as math from 'mathjs';
 
-default export class MapGenerator {
+export default class MapGenerator {
   public rand: number = Math.random();
   public Map: number[][];
   private MapWidth: number;

@@ -34,7 +34,7 @@ const Activations = {
     if (!derivative) {
       return Math.atan(x);
     }
-    return 1 / ((x ** 2) + 1);
+    return 1 / (x ** 2 + 1);
   },
 
   // Range (-INFINITY, INFINITY)
@@ -50,7 +50,7 @@ const Activations = {
     if (!derivative) {
       return x / (1 + Math.abs(x));
     }
-    return 1 / ((Math.abs(x) + 1) ** 2);
+    return 1 / (Math.abs(x) + 1) ** 2;
   },
 
   // Range (0, INFINITY)
@@ -70,7 +70,7 @@ const Activations = {
       return Math.exp(-1 * (x * x));
     }
     return -2 * x * Math.exp(-1 * (x * x));
-  },
+  }
 };
 
 export default Activations;
