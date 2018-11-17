@@ -15,7 +15,7 @@ export default abstract class Activations {
     return x < 0 ? 0 : 1;
   }
 
-  // 
+  //
   public static swish(x: number, derivative: boolean = false): number {
     if (!derivative) {
       return x * Activations.sigmoid(x);
@@ -31,7 +31,7 @@ export default abstract class Activations {
   }
 
   // Range (-PI/2, PI/2)
-  public static arctan (x: number, derivative: boolean = false): number {
+  public static arctan(x: number, derivative: boolean = false): number {
     if (!derivative) {
       return Math.atan(x);
     }
@@ -65,12 +65,14 @@ export default abstract class Activations {
 
   public static softMax(x: number, derivative: boolean = false): number {
     if (!derivative) {
-      return Math.exp(x[index]) / x.map(y => Math.exp(y)).reduce((a, b) => a + b);
+      return (
+        Math.exp(x[index]) / x.map(y => Math.exp(y)).reduce((a, b) => a + b)
+      );
     }
   }
 
   // Range (0, 1]
-  public static gaussian (x: number, derivative: boolean = false): number {
+  public static gaussian(x: number, derivative: boolean = false): number {
     if (!derivative) {
       return Math.exp(-1 * (x * x));
     }
@@ -78,13 +80,15 @@ export default abstract class Activations {
   }
 
   // https://arxiv.org/pdf/1706.02515.pdf
-  public static selu (x: number, derivative: boolean = false): number {
+  public static selu(x: number, derivative: boolean = false): number {
     const alpha = 1.6732632423543772848170429916717;
     const scale = 1.0507009873554804934193349852946;
     const fx = x > 0 ? x : alpha * Math.exp(x) - alpha;
-    if (derivate) { return x > 0 ? scale : (fx + alpha) * scale; }
+    if (derivate) {
+      return x > 0 ? scale : (fx + alpha) * scale;
+    }
     return fx * scale;
   }
 
-  public static 
+  public static;
 }
