@@ -62,7 +62,7 @@ const Activations = {
   },
 
   softMax: x => index =>
-    Math.exp(arr[index]) / arr.map(y => Math.exp(y)).reduce((a, b) => a + b),
+    Math.exp(x[index]) / x.map(y => Math.exp(y)).reduce((a, b) => a + b),
 
   // Range (0, 1]
   gaussian: (x, derivative = false) => {

@@ -33,6 +33,9 @@ class MainGame extends Phaser.Scene {
   public init() {
     this.moveSpeed = 150;
     this.isPlayerAlive = true;
+    this.map = new MapGenerator(100, 25, 42);
+    this.map.RandomFillMap();
+    this.map.MakeCaverns();
   }
 
   /**
