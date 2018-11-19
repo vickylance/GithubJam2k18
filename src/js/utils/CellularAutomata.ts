@@ -3,8 +3,8 @@ import * as math from 'mathjs';
 export default class MapGenerator {
   public rand: number = Math.random();
   public Map: number[][];
-  private MapWidth: number;
-  private MapHeight: number;
+  public MapWidth: number;
+  public MapHeight: number;
   private PercentAreWalls: number;
 
   constructor(
@@ -168,9 +168,9 @@ export default class MapGenerator {
   }
 }
 
-// const mapGenerator = new MapHandler(100, 25, 42);
+// const mapGenerator = new MapGenerator(100, 25, 35);
 // mapGenerator.RandomFillMap();
 // mapGenerator.BlankMap();
 // mapGenerator.MakeCaverns();
-// console.log(mapGenerator.Map)
+// console.log(mapGenerator.Map.valueOf());
 // mapGenerator.PrintMap();

@@ -8,14 +8,18 @@
     "prettier:base": "prettier --parser typescript --single-quote",
     "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "precommit": "npm run prettier:write"
+    "precommit": "npm run prettier:write",
+    "concurrently": "concurrently \"tsc ./src/js/utils/MapGenerator.ts --watch\" \"nodemon ./src/js/utils/MapGenerator.js\" --names \"TS,JS\""
   },
   "license": "MIT",
   "version": "1.0.0",
   "devDependencies": {
+    "concurrently": "^4.0.1",
     "cssnano": "^4.1.0",
     "husky": "^0.14.3",
     "node-sass": "^4.9.3",
+    "nodemon": "^1.18.6",
+    "parcel-bundler": "^1.10.3",
     "prettier": "1.14.2",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
@@ -24,7 +28,7 @@
   "dependencies": {
     "lodash": "^4.17.10",
     "mathjs": "^5.2.3",
-    "parcel-bundler": "^1.10.3",
-    "phaser": "^3.11.0"
+    "phaser": "^3.15.1",
+    "seedrandom": "^2.4.4"
   }
 }

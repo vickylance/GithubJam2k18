@@ -3,10 +3,9 @@ import LoadGame from './scenes/LoadGame';
 
 const game = new Game({
   width: 640,
-  height: 360,
+  height: 640,
   type: Phaser.WEBGL,
   pixelArt: true,
-  roundPixels: true,
   scene: [LoadGame],
   title: 'They came from SPACE',
   parent: 'game',

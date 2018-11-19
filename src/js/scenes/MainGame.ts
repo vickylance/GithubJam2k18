@@ -33,7 +33,7 @@ class MainGame extends Phaser.Scene {
   public init() {
     this.moveSpeed = 150;
     this.isPlayerAlive = true;
-    this.map = new MapGenerator(100, 25, 42);
+    this.map = new MapGenerator(60, 60, 45);
     this.map.RandomFillMap();
     this.map.MakeCaverns();
   }
@@ -43,7 +43,10 @@ class MainGame extends Phaser.Scene {
    */
   public preload() {
     // load images
-    this.load.image('background', Images.background);
+    this.load.spritesheet('background', Images.background, {
+      frameWidth: 50,
+      frameHeight: 50
+    });
     this.load.image('dragon', Images.dragon);
     this.load.image('player', Images.player);
     this.load.image('treasure', Images.treasure);
@@ -54,8 +57,25 @@ class MainGame extends Phaser.Scene {
    */
   public create() {
     // set the background
-    const bg = this.add.sprite(0, 0, 'background');
-    bg.setOrigin(0, 0);
+    this.caveWalls = this.physics.add.staticGroup();
+    for (
+      let column: number = 0, row: number = 0;
+      row < this.map.MapHeight;
+      row++
+    ) {
+      for (column = 0; column < this.map.MapWidth; column++) {
+        if (this.map.Map.valueOf()[column][row] === 1) {
+          this.caveWalls
+            .create(column * 50, row * 50, 'background', 0)
+            .setOrigin(0, 0);
+          // this.add.sprite().setOrigin(0, 0);
+        }
+      }
+    }
+
+    // Set the camera
+    this.cameras.main.setBounds(0, 0, 1024, 2048);
+    this.cameras.main.zoom = 0.2;
 
     // player
     this.player = this.physics.add.sprite(
