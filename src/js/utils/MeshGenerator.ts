@@ -29,8 +29,6 @@ class LoadGame extends Phaser.Scene {
     //     }
     //   }
     // }
-
-
   }
 }
 

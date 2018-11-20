@@ -1,2 +1,1 @@
-import GameState from './GameState'
-default export GameState;
+export { default as GameState } from './GameState';

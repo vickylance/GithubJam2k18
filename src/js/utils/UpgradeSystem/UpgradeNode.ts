@@ -1,4 +1,4 @@
-import Notify, { NotifyTypes } from "../Globals/Notify";
+import Notify, { NotifyTypes } from '../Globals/Notify';
 
 export default class UpgradeNode {
   public parent: UpgradeNode;
@@ -31,15 +31,19 @@ export default class UpgradeNode {
   public upgrade() {
     switch (this.state) {
       case UpgradedState.Upgraded:
-        throw new Notify(NotifyTypes.Error, 'Trying to upgrade a Node which is already Upgraded.', {
-
-        });
+        throw new Notify(
+          NotifyTypes.Error,
+          'Trying to upgrade a Node which is already Upgraded.',
+          {}
+        );
         break;
       case UpgradeState.Locked:
-        throw new Notify(NotifyTypes.Error, 'Trying to upgrade a Node which is currently locked.');
+        throw new Notify(
+          NotifyTypes.Error,
+          'Trying to upgrade a Node which is currently locked.'
+        );
         break;
       case UpgradeState.Unlocked:
-        
         throw new Notify(NotifyTypes.Info);
         break;
       default:
