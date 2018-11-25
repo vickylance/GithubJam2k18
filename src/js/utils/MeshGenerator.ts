@@ -15,20 +15,19 @@ class LoadGame extends Phaser.Scene {
       'vignes'
     );
     this.map.generateMap();
-    console.log(this.map.mapToString());
   }
   public create() {
-    // for (let column: number = 0; column < this.map.width; column++) {
-    //   for (let row: number = 0; row < this.map.height; row++) {
-    //     if (this.map.Map.valueOf()[column][row] === 1) {
-    //       const rect = this.add
-    //         .rectangle(column * 10, row * 10, 10, 10, 0x964b00)
-    //         .setOrigin(0);
-    //       rect.isStroked = true;
-    //       rect.lineWidth = 0;
-    //     }
-    //   }
-    // }
+    for (let column: number = 0; column < this.map.width; column++) {
+      for (let row: number = 0; row < this.map.height; row++) {
+        if (this.map.Map.valueOf()[column][row] === 1) {
+          const rect = this.add
+            .rectangle(column * 10, row * 10, 10, 10, 0x964b00)
+            .setOrigin(0);
+          rect.isStroked = true;
+          rect.lineWidth = 0;
+        }
+      }
+    }
   }
 }
 
