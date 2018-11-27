@@ -3322,6 +3322,10 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
+"javascript-astar@github:mikewesthad/javascript-astar":
+  version "0.4.2"
+  resolved "https://codeload.github.com/mikewesthad/javascript-astar/tar.gz/c0304b12861eda334e27f2f15d701c10b296593f"
+
 javascript-natural-sort@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz#f9e2303d4507f6d74355a73664d1440fb5a0ef59"
@@ -3850,6 +3854,13 @@ nanomatch@^1.2.9:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+navmesh@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/navmesh/-/navmesh-2.0.1.tgz#5c3fd89eb9af3cbbd321424e5fa061da24f7d354"
+  integrity sha1-XD/YnrmvPLvTIUJOX6Bh2iT301Q=
+  dependencies:
+    javascript-astar "github:mikewesthad/javascript-astar"
 
 needle@^2.2.1:
   version "2.2.4"
@@ -4489,6 +4500,13 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+
+phaser-navmesh@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/phaser-navmesh/-/phaser-navmesh-2.0.3.tgz#18d3fac394d2da55e97a60680651d0fbc1171d66"
+  integrity sha1-GNP6w5TS2lXpemBoBlHQ+8EXHWY=
+  dependencies:
+    navmesh "^2.0.1"
 
 phaser@^3.15.1:
   version "3.15.1"
