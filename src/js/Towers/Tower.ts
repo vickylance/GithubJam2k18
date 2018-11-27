@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 interface ITowerLevelConfig {
   public level: number;
   public baseHealthModifier: number;
@@ -6,7 +8,7 @@ interface ITowerLevelConfig {
   public baseSellPriceModifier: number;
 }
 
-export default abstract class Tower {
+export default abstract class Tower extends Phaser.Physics.Matter.Sprite {
   public baseHealth: number;
   public baseRange: number;
   public baseCost: number;
